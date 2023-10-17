@@ -10,7 +10,7 @@
 <body>
   <ul type="square">
     <li><a href="golongan.php">Golongan</a></li>
-    <li><a href="selectSediaan.php">Sediaan</a></li>
+    <li><a href="sediaan.php">Sediaan</a></li>
     <li><a href="selectObat.php">Obat</a></li>
   </ul>
 </body>
