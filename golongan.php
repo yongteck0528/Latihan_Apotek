@@ -49,8 +49,8 @@
 									<td><?= $data['kode']; ?></td>
 									<td><?= $data['nama']; ?></td>
 									<td align="center"> 
-										<a href="golongan.php?aksi=edit&kd=<?= $data['kode']; ?>">Update</a> |
-										<a href="golongan.php?aksi=hapus&kd=<?= $data['kode']; ?>" onclick="return confirm('Yakin Hapus?')">Delete</a>
+										<a href="golongan.php?aksi=edit&kd=<?= $data['kode']; ?>"><img src='icon/edit.ico' width='20' height='20' title='edit'/></a> |
+										<a href="golongan.php?aksi=hapus&kd=<?= $data['kode']; ?>" onclick="return confirm('Yakin Hapus?')"><img src='icon/delete.ico' width='20' height='20' title='delete'/></a>
 									</td>
 								</tr>
 					<?php 

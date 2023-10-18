@@ -75,12 +75,8 @@
                             <?= date("d M Y", strtotime($data['expire_date'])); ?>
                         </td>
                         <td align="center">
-                            <?=
-                                "<a href='updateObat.php?id=" . $data['id_obat'] . "'>
-									 <img src='icon/edit.ico' width='40' height='40' title='edit'/></a>
-									 <a href='deleteObat.php?id=" . $data['id_obat'] . "&img=" . $data['image'] . "'>
-									 <img src='icon/delete.ico' width='40' height='40' title='delete'/></a>";
-                            ?>
+                        <a href="obat.php?aksi=edit&kd=<?= $data['kode']; ?>"><img src='icon/edit.ico' width='20' height='20' title='edit'/></a> |
+                        <a href="obat.php?aksi=hapus&kd=<?= $data['kode']; ?>" onclick="return confirm('Yakin Hapus?')"><img src='icon/delete.ico' width='20' height='20' title='delete'/></a>
                         </td>
                     </tr>
                     <?php
