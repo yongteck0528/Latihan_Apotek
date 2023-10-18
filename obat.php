@@ -120,7 +120,7 @@
                             <?php
 
                             $sql = "SELECT * FROM golongan";
-                            $result = mysqli_query($con, $sql) or die(mysqli_error($sql));
+                            $result = mysqli_query($con, $sql);
                             while ($data = mysqli_fetch_array($result)) {
                                 ?>
                                 <option value="<?= $data['kode']; ?>">
@@ -138,7 +138,7 @@
                             <?php
 
                             $sql = "SELECT * FROM sediaan";
-                            $result = mysqli_query($con, $sql) or die(mysqli_error($sql));
+                            $result = mysqli_query($con, $sql);
                             while ($data = mysqli_fetch_array($result)) {
                                 ?>
                                 <option value="<?= $data['kode']; ?>">
@@ -160,7 +160,7 @@
                     <td>
                         <input type="submit" name="insert" value="Insert" />
                         <input type="reset" value="Clear" />
-                        <input type="button" value="Cancel" onclick="window.location.href='selectObat.php'">
+                        
                     </td>
                 </tr>
             </table>
