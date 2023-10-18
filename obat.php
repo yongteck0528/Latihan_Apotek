@@ -84,8 +84,8 @@
                             <?= date("d M Y", strtotime($data['expire_date'])); ?>
                         </td>
                         <td align="center">
-                        <a href="obat.php?aksi=edit&kd=<?= $data['kode']; ?>"><img src='icon/edit.ico' width='20' height='20' title='edit'/></a> |
-                        <a href="obat.php?aksi=hapus&kd=<?= $data['kode']; ?>" onclick="return confirm('Yakin Hapus?')"><img src='icon/delete.ico' width='20' height='20' title='delete'/></a>
+                            <a href="obat.php?aksi=edit&id_obat=<?= $data['id_obat']; ?>"><img src='icon/edit.ico' width='20' height='20' title='edit'/></a> |
+                            <a href="obat.php?aksi=hapus&id_obat=<?= $data['id_obat']; ?>" onclick="return confirm('Yakin Hapus?')"><img src='icon/delete.ico' width='20' height='20' title='delete'/></a>
                         </td>
                     </tr>
                     <?php
@@ -189,7 +189,7 @@
     //Function edit (UPDATE)
     function edit($con)
     {
-        $id = $_GET['id'];
+        $id = $_GET['id_obat'];
         $sql = "SELECT * FROM dtobat WHERE id_obat='$id'";
         $result = mysqli_query($con, $sql);
         while ($data = mysqli_fetch_array($result)) {
@@ -262,7 +262,7 @@
                         <td>
                             <input type="submit" name="update" value="Update" />
                             <input type="reset" value="Clear" />
-                            <input type="button" value="Cancel" onclick="window.location.href='selectObat.php'">
+                            <input type="button" value="Cancel" onclick="window.location.href='obat.php'">
                         </td>
                     </tr>
                 </table>
@@ -270,7 +270,7 @@
             <?php
         }
         if(isset($_POST['update'])){
-            $id		= $_POST['id'];
+            $id		= $_POST['id_obat'];
             $oldimg	= $_POST['old'];
             $newimg	= $_FILES['foto']['name'];
             $nm		= $_POST['nama'];
@@ -314,18 +314,20 @@
     }
 
     function hapus($con){
-    $id		= $_GET['id'];
-	$img 	= $_GET['img'];
-	
-	unlink('image/'.$img);
-	$sql	=  "DELETE FROM dtobat WHERE id_obat='$id'";
-	$result = mysqli_query($con,$sql);
-	if($result) {
-		header("location:obat.php");
-	}
-	else{
-		echo "Query Error : ".mysqli_error($con);
-	}
+
+    if(isset($_GET['id_obat'])){
+
+
+        $id		= $_GET['id_obat'];
+        $img 	= $_GET['img'];
+        
+        unlink('image/'.$img);
+        $sql	=  "DELETE FROM dtobat WHERE id_obat='$id'";
+        $result = mysqli_query($con,$sql);
+        if($result) {
+            header("location:obat.php");
+        }
+        }
     }
 
     ?>
