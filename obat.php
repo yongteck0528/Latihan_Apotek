@@ -8,9 +8,17 @@
 </head>
 
 <body>
+<h1>Data Obat</h1>
+	<hr />
+	<a href='index.php' style='text-decoration:none'>
+		<img src='icon/back.ico' width='20' height='20' title='Back to Home' align='top' />
+		<font color='brown'>Back to Home</font>
+	</a>
+	
+	<br /><br />
     <?php
     //Connection
-    $con = mysqli_connect("localhost", "root", "", "apotek") or die(mysqli_error());
+    $con = mysqli_connect("localhost", "root", "", "apotek");
 
     //Main
     if (isset($_GET['aksi'])) {
@@ -36,6 +44,7 @@
     function view($con)
     {
         ?>
+        
         <br>
         <table border="1" width=100% style="text-align:center; font-size:18px; border-collapse: collapse">
             <tr>
